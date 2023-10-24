@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'item'
+
 TASKS = {
   1 => :task1,
   2 => :task2,
