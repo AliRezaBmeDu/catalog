@@ -20,3 +20,23 @@ def display_main_menu
   puts '6. Task 6'
   puts '7. Exit'
 end
+
+def main
+    puts "\n\nWelcome to the 'Catalog' app. Please make your choice and press Enter"
+    loop do
+      display_main_menu
+      print 'input: '
+      option = gets.chomp.to_i
+      if option == 7
+        puts 'Exiting... Thank you for using the application'
+        break
+      end
+      selection = TASKS[option] || TASKS[:default]
+    #   my_app.send(selection)
+      puts "Still to be implemented"
+      puts "\n"
+    end
+  end
+
+  main
+  
