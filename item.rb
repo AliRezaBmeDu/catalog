@@ -11,4 +11,13 @@ class Item
     @source = nil
     @label = nil
   end
+
+  def can_be_archived?
+    Time.now.year - Date.parse(@publish_date).year > 10
+  end
+
+  def move_to_archive
+    @archived = can_be_archived?
+  end
+
 end
