@@ -2,13 +2,13 @@ require_relative 'item'
 require_relative 'app'
 
 TASKS = {
-  1 => :create_album,
+  1 => :task1,
   2 => :list_album,
   3 => :task3,
   4 => :task4,
   5 => :task5,
   6 => :task6,
-  7 => :task7,
+  7 => :create_album,
   8 => :task8,
   9 => :exit,
   default: :invalid_option
@@ -16,13 +16,15 @@ TASKS = {
 
 def display_main_menu
   puts "\nMain Menu: "
-  puts '1. Create Album'
+  puts '1. Task 1'
   puts '2. List Albums'
   puts '3. Task 3'
   puts '4. Task 4'
   puts '5. Task 5'
   puts '6. Task 6'
-  puts '7. Exit'
+  puts '7. Create Album'
+  puts '8. Task 8'
+  puts '9. Exit'
 end
 
 def main
