@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Class Item
 class Item
   attr_accessor :var1
