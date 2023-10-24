@@ -40,7 +40,7 @@ def main
     end
     selection = TASKS[option] || TASKS[:default]
     my_app.send(selection)
-    puts 'Still to be implemented'
+    # puts 'Still to be implemented'
     puts "\n"
   end
 end
