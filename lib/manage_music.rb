@@ -66,9 +66,19 @@ def list_all_albums
     puts "\n--------------"
     puts 'List of albums:'
     @album_list.each do |album|
-        print "\n#{album.name}, by #{album.artist}, published on #{album.publish_date}, genre: "
-        album.genre.each do |element|
-            print element.name 
+        print "\n#{album.name}, by #{album.artist}, published on #{album.publish_date}, genre: #{album.genre.name}"
+    end
+    puts "\n---------------"
+end
+
+def list_all_genre
+    puts "\n--------------"
+    puts 'List of genre:'
+    @genre_list.each do |genre|
+        puts "\nGenre Name:#{genre.name}"
+        puts "Albums under this Genre:"
+        genre.items.each_with_index do |item, index|
+            puts "#{index+1}. #{item.name}"
         end
     end
     puts "\n---------------"
@@ -87,9 +97,10 @@ def store_albums
             name: album.name,
             artist: album.artist,
             publish_date: album.publish_date,
+            on_spotify: album.on_spotify,
             genre: [album.genre.id, album.genre.name]
         }
-        album_data << album_json
+        album_data << album_json unless album_data.include?(album_json)
     end
     open(album_file, 'w') { |f| f.write JSON.generate(album_data) }
 end
@@ -102,7 +113,24 @@ def store_genre
             id: genre.id,
             name: genre.name
         }
-        genre_data << genre_json
+        genre_data << genre_json unless genre_data.include?(genre_json)
     end
     open(genre_file, 'w') { |f| f.write JSON.generate(genre_data) }
+end
+
+def load_music_data
+    return unless File.exist?('datastorage/album.json')
+    return if File.empty?('datastorage/album.json')
+    albums = JSON.parse(File.read('datastorage/album.json'))
+    genres = JSON.parse(File.read('datastorage/genre.json'))
+    albums.each do |album|
+        new_album = MusicAlbum.new(album["name"], album["artist"], 
+            album["publish_date"], id: album["id"], on_spotify: album["on_spotify"])
+        genre = @genre_list.find { |element| element.name == album["genre"][1] }
+        genre_id = genres.find { |element| element["name"] == album["genre"][1] }
+        genre = Genre.new(album["genre"][1], id: genre_id["id"]) if genre == nil
+        genre.add_item(new_album)
+        @album_list << new_album unless @album_list.include?(new_album)
+        @genre_list << genre unless @genre_list.include?(genre)
+    end
 end

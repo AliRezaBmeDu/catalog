@@ -2,7 +2,8 @@ class Genre
   attr_accessor :id, :name, :items
 
   def initialize(name, id: nil)
-    @id = id || Random.rand(1..1000)
+    @id = id
+    @id = Random.rand(1..1000) if id.nil?
     @name = name
     @items = []
   end
