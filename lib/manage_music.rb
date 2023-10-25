@@ -3,7 +3,8 @@ require_relative '../music_album'
 require_relative '../genre'
 require_relative '../storage'
 
-def game_options
+include Storage
+def music_options
     puts 'Please enter the number of the option to proceed'
     puts '1. List all Music Albums'
     puts '2. List all Genres'
@@ -13,14 +14,32 @@ def game_options
     print '>>> :'
 end
 
-class App
-include Storage
-  def initialize
-    @album_list = []
-    @genre_list = []
-  end
+def manage_music
+    puts
+    music_options
+    option = gets.chomp.to_i
+    case option
+    when 1
+        list_all_albums
+        manage_music
+    when 2
+        list_all_genre
+        manage_music
+    when 3
+        create_album
+        manage_music
+    when 4
+        store_albums
+        nil
+    when 5
+        store_albums
+        save_exit
+    else
+        puts 'Invalid, please enter a valid option (eg. "1")'
+    end
+end
 
-  def create_album
+def create_album
     print 'Album title: '
     name = gets.chomp.upcase
     print 'Artist Name: '
@@ -36,25 +55,41 @@ include Storage
     print 'Genre name: '
     genre_name = gets.chomp.capitalize
     genre = @genre_list.find { |genre| genre.name == genre_name }
-    genre = Genre.new(genre_name) if genre == nil   #label = Label.new() if label = nil
+    genre = Genre.new(genre_name) if genre == nil
     album = MusicAlbum.new(name, artist, publish_date, on_spotify: on_spotify)
     album.add_genre(genre)
     @album_list << album
     @genre_list << genre unless @genre_list.include?(genre)
-  end
-
-  def list_album
-    puts 'List of albums:'
-    @album_list.each do |album|
-      print "\n#{album.name}, by #{album.artist}, published on #{album.publish_date}, genre: "
-        album.genre.each do |element|
-           print element.name 
-        end
-    end
-  end
-
-  def store_all_data
-    store_album(@album_list)
-  end
 end
 
+def list_all_albums
+    puts "\n--------------"
+    puts 'List of albums:'
+    @album_list.each do |album|
+        print "\n#{album.name}, by #{album.artist}, published on #{album.publish_date}, genre: "
+        album.genre.each do |element|
+            print element.name 
+        end
+    end
+    puts "\n---------------"
+end
+
+def store_all_data
+    store_album(@album_list)
+end
+
+def store_albums
+    album_file = 'datastorage/album.json'
+    album_data = []
+    @album_list.each do |album|
+        album_json = {
+            id: album.id,
+            name: album.name,
+            artist: album.artist,
+            publish_date: album.publish_date,
+            genre: album.genre
+        }
+        album_data << album_json
+    end
+    open(album_file, 'w') { |f| f.write JSON.generate(album_data) }
+end
