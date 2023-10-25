@@ -3,7 +3,6 @@ require_relative 'music_album'
 require_relative 'item'
 require_relative 'genre'
 
-
 def store_albums(album_list)
   album_file = 'datastorage/album.json'
   album_data = []
