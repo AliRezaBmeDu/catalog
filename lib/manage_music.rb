@@ -3,7 +3,6 @@ require_relative '../music_album'
 require_relative '../genre'
 require_relative '../storage'
 
-include Storage
 def music_options
   puts 'Please enter the number of the option to proceed'
   puts '1. List all Music Albums'
@@ -21,24 +20,18 @@ def manage_music
   case option
   when 1
     list_all_albums
-    manage_music
   when 2
     list_all_genre
-    manage_music
   when 3
     create_album
-    manage_music
-  when 4
+  when 4, 5
     store_albums(@album_list)
     store_genre(@genre_list)
-    nil
-  when 5
-    store_albums(@album_list)
-    store_genre(@genre_list)
-    save_exit
+    save_exit if option == 5
   else
     puts 'Invalid, please enter a valid option (eg. "1")'
   end
+  manage_music unless option == 4
 end
 
 def create_album
@@ -56,7 +49,7 @@ def create_album
   on_spotify = (spotify == 'Y')
   print 'Genre name: '
   genre_name = gets.chomp.capitalize
-  genre = @genre_list.find { |genre| genre.name == genre_name }
+  genre = @genre_list.find { |element| element.name == genre_name }
   genre = Genre.new(genre_name) if genre.nil?
   album = MusicAlbum.new(name, artist, publish_date, on_spotify: on_spotify)
   genre.add_item(album)
@@ -76,6 +69,7 @@ end
 def list_all_genre
   puts "\n--------------"
   puts 'List of genre:'
+  #   puts "Genre List: #{@genre_list}"
   @genre_list.each do |genre|
     puts "\nGenre Name:#{genre.name}"
     puts 'Albums under this Genre:'
@@ -91,15 +85,22 @@ def load_music_data
   return if File.empty?('datastorage/album.json')
 
   albums = JSON.parse(File.read('datastorage/album.json'))
-  genres = JSON.parse(File.read('datastorage/genre.json'))
   albums.each do |album|
-    new_album = MusicAlbum.new(album['name'], album['artist'],
-                               album['publish_date'], id: album['id'], on_spotify: album['on_spotify'])
-    genre = @genre_list.find { |element| element.name == album['genre'][1] }
-    genre_id = genres.find { |element| element['name'] == album['genre'][1] }
-    genre = Genre.new(album['genre'][1], id: genre_id['id']) if genre.nil?
-    genre.add_item(new_album)
-    @album_list << new_album unless @album_list.include?(new_album)
-    @genre_list << genre unless @genre_list.include?(genre)
+    load_album(album)
   end
+end
+
+def load_album(album_data)
+  new_album = MusicAlbum.new(album_data['name'], album_data['artist'],
+                             album_data['publish_date'], id: album_data['id'], on_spotify: album_data['on_spotify'])
+  genre = load_or_create_genre(album_data['genre'])
+  genre.add_item(new_album)
+  @album_list << new_album unless @album_list.include?(new_album)
+  @genre_list << genre unless @genre_list.include?(genre)
+end
+
+def load_or_create_genre(genre_data)
+  genre = @genre_list.find { |element| element.name == genre_data[1] }
+  genre = Genre.new(genre_data[1], id: genre_data[0]) if genre.nil?
+  genre
 end
