@@ -1,4 +1,3 @@
-# Class Item
 require 'date'
 
 class Item
