@@ -15,7 +15,7 @@ class Game < Item
   end
 
   def to_json(*_args)
-    archive = can_be_archived?()
+    archive = can_be_archived?
     {
       'id' => @id,
       'multiplayer' => @multiplayer,
