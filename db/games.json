@@ -1,0 +1,23 @@
+[
+  {
+    "id": 971,
+    "multiplayer": "yes",
+    "last_played_at": "22/06/2019",
+    "publish_date": "22/06/2019",
+    "archived": false
+  },
+  {
+    "id": 754,
+    "multiplayer": "yes",
+    "last_played_at": "20/06/2019",
+    "publish_date": "22/06/2019",
+    "archived": false
+  },
+  {
+    "id": 583,
+    "multiplayer": "yes",
+    "last_played_at": "20/06/2019",
+    "publish_date": "20/05/2009",
+    "archived": true
+  }
+]
