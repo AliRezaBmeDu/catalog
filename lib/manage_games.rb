@@ -61,9 +61,11 @@ end
 def list_all_games
   puts
   return puts 'No games found!' if @games.empty?
+
   puts '------------------------------------------------------------'
   @games.each_with_index do |game, index|
-    puts "#{index + 1}) Multiplayer: #{game.multiplayer}, last played: #{game.last_played_at}, published: #{game.publish_date}"
+    puts "#{index + 1}) Multiplayer: #{game.multiplayer},
+    last played: #{game.last_played_at}, published: #{game.publish_date}"
   end
   puts '------------------------------------------------------------'
 end

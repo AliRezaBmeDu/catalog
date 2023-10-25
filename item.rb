@@ -12,11 +12,6 @@ class Item
     @label = nil
   end
 
-  def author=(author)
-    @author = author
-    author.items << self unless author.items.include?(self)
-  end
-
   def can_be_archived?
     Time.now.year - Date.parse(@publish_date).year > 10
   end
