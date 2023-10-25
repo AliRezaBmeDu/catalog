@@ -1,9 +1,7 @@
 require_relative '../item'
 require_relative '../music_album'
 require_relative '../genre'
-require_relative '../storage'
 
-include Storage
 def music_options
     puts 'Please enter the number of the option to proceed'
     puts '1. List all Music Albums'
@@ -30,9 +28,11 @@ def manage_music
         manage_music
     when 4
         store_albums
+        store_genre
         nil
     when 5
         store_albums
+        store_genre
         save_exit
     else
         puts 'Invalid, please enter a valid option (eg. "1")'
@@ -57,7 +57,7 @@ def create_album
     genre = @genre_list.find { |genre| genre.name == genre_name }
     genre = Genre.new(genre_name) if genre == nil
     album = MusicAlbum.new(name, artist, publish_date, on_spotify: on_spotify)
-    album.add_genre(genre)
+    genre.add_item(album)
     @album_list << album
     @genre_list << genre unless @genre_list.include?(genre)
 end
@@ -87,9 +87,22 @@ def store_albums
             name: album.name,
             artist: album.artist,
             publish_date: album.publish_date,
-            genre: album.genre
+            genre: [album.genre.id, album.genre.name]
         }
         album_data << album_json
     end
     open(album_file, 'w') { |f| f.write JSON.generate(album_data) }
+end
+
+def store_genre
+    genre_file = 'datastorage/genre.json'
+    genre_data = []
+    @genre_list.each do |genre|
+        genre_json = {
+            id: genre.id,
+            name: genre.name
+        }
+        genre_data << genre_json
+    end
+    open(genre_file, 'w') { |f| f.write JSON.generate(genre_data) }
 end

@@ -7,14 +7,14 @@ class Item
     @id = Random.rand(1..2000)
     @archived = archived
     @publish_date = publish_date
-    @genre = []
+    @genre = nil
     @author = nil
     @source = nil
     @label = nil
   end
 
   def add_genre(album_genre)
-    @genre << album_genre unless @genre.include?(album_genre)
+    @genre = album_genre
   end
 
 
