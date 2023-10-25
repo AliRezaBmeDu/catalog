@@ -1,9 +1,13 @@
 require_relative 'item'
 require_relative 'music_album'
+require_relative 'genre'
+require_relative 'storage'
 
 class App
+include Storage
   def initialize
-    @albums = []
+    @album_list = []
+    @genre_list = []
   end
 
   def create_album
@@ -19,15 +23,28 @@ class App
     print 'On Spotify [Y/N]? '
     spotify = gets.chomp.upcase
     on_spotify = (spotify == 'Y')
+    print 'Genre name: '
+    genre_name = gets.chomp.capitalize
+    genre = @genre_list.find { |genre| genre.name == genre_name }
+    genre = Genre.new(genre_name) if genre == nil
     album = MusicAlbum.new(name, artist, publish_date, on_spotify: on_spotify)
-    @albums << album
+    album.add_genre(genre)
+    @album_list << album
+    @genre_list << genre unless @genre_list.include?(genre)
   end
 
   def list_album
     puts 'List of albums:'
-    @albums.each do |album|
-      puts "#{album.name}, by #{album.artist}, published on #{album.publish_date}, isarchived? #{album.archived}  canarchived? #{album.can_be_archived?}"
+    @album_list.each do |album|
+      print "\n#{album.name}, by #{album.artist}, published on #{album.publish_date}, genre: "
+        album.genre.each do |element|
+           print element.name 
+        end
     end
+  end
+
+  def store_all_data
+    store_album(@album_list)
   end
 end
 

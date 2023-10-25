@@ -8,11 +8,16 @@ class Item
     @id = Random.rand(1..2000)
     @archived = archived
     @publish_date = publish_date
-    @genre = nil
+    @genre = []
     @author = nil
     @source = nil
     @label = nil
   end
+
+  def add_genre(album_genre)
+    @genre << album_genre unless @genre.include?(album_genre)
+  end
+
 
   def can_be_archived?
     Time.now.year - Date.parse(@publish_date).year > 10
