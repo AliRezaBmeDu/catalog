@@ -26,7 +26,7 @@ include Storage
     print 'Genre name: '
     genre_name = gets.chomp.capitalize
     genre = @genre_list.find { |genre| genre.name == genre_name }
-    genre = Genre.new(genre_name) if genre == nil
+    genre = Genre.new(genre_name) if genre == nil   #label = Label.new() if label = nil
     album = MusicAlbum.new(name, artist, publish_date, on_spotify: on_spotify)
     album.add_genre(genre)
     @album_list << album

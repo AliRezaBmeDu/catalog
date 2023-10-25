@@ -1,5 +1,5 @@
 require_relative 'item'
-require_relative 'app'
+require_relative 'app_music'
 
 TASKS = {
   1 => :task1,

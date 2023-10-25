@@ -12,7 +12,7 @@ module Storage
                 name: album.name,
                 artist: album.artist,
                 publish_date: album.publish_date,
-                genre: album.genre,
+                genre: album.genre
             }
             album_data << album_json
         end
