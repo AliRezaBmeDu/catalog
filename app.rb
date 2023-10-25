@@ -1,11 +1,11 @@
 require_relative 'lib/manage_games'
 
 class App
-  attr_accessor :games
+  attr_accessor :games, :music, :genres
 
   def initialize
     @books = []
-    @music = []
+    @album_list = []
     @games = []
     @labels = []
     @authors = []

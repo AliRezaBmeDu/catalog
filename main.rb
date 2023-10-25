@@ -27,7 +27,6 @@ def main
     manage_selection(app, menu(app))
     puts "\n"
   end
-  my_app.store_all_data
 end
 
 main

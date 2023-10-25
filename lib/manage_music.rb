@@ -1,7 +1,17 @@
-require_relative 'item'
-require_relative 'music_album'
-require_relative 'genre'
-require_relative 'storage'
+require_relative '../item'
+require_relative '../music_album'
+require_relative '../genre'
+require_relative '../storage'
+
+def game_options
+    puts 'Please enter the number of the option to proceed'
+    puts '1. List all Music Albums'
+    puts '2. List all Genres'
+    puts '3. Create an album'
+    puts '4. return'
+    puts '5. exit'
+    print '>>> :'
+end
 
 class App
 include Storage
