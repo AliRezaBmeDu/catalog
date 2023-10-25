@@ -4,10 +4,10 @@ require_relative 'item'
 require_relative 'genre'
 
 module Storage
-  def store_albums
+  def store_albums(album_list)
     album_file = 'datastorage/album.json'
     album_data = []
-    @album_list.each do |album|
+    album_list.each do |album|
       album_json = {
         id: album.id,
         name: album.name,
@@ -21,10 +21,10 @@ module Storage
     open(album_file, 'w') { |f| f.write JSON.generate(album_data) }
   end
 
-  def store_genre
+  def store_genre(genre_list)
     genre_file = 'datastorage/genre.json'
     genre_data = []
-    @genre_list.each do |genre|
+    genre_list.each do |genre|
       genre_json = {
         id: genre.id,
         name: genre.name
