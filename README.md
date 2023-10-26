@@ -81,12 +81,10 @@ https://github.com/AliRezaBmeDu/catalog.git
 
 ### Install
 
-
 ```sh
   cd catalog
   bundle install
 ```
-
 
 ### Usage
 
@@ -106,7 +104,6 @@ To run the unit test files, run the following command in the terminal:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
@@ -117,6 +114,11 @@ To run the unit test files, run the following command in the terminal:
 - Twitter: [@twitterhandle](https://twitter.com/share_insider)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohammad-ali-reza-25686428b/)
 
+👤 **Redwan Mohammed-Nur**
+
+- GitHub: [@ethred](https://github.com/ethred)
+- Twitter: [@redwanthr](https://twitter.com/@redwanthr)
+- LinkedIn: [Redwan Tahir](https://www.linkedin.com/in/redwan-tahir-78260733/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,7 +155,6 @@ If you like this project please give it a ⭐️
 I would like to thank all the documents provided by microverse.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 
