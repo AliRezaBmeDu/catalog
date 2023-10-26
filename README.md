@@ -120,6 +120,12 @@ To run the unit test files, run the following command in the terminal:
 - Twitter: [@redwanthr](https://twitter.com/@redwanthr)
 - LinkedIn: [Redwan Tahir](https://www.linkedin.com/in/redwan-tahir-78260733/)
 
+👤 **Vikas Chib**
+
+- GitHub: [@vikas924](https://github.com/vikas924)
+- Twitter: [@vikas410190](https://twitter.com/vikas410190)
+- LinkedIn: [Vikas Singh](https://www.linkedin.com/in/vikas-singh-586a07132/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
