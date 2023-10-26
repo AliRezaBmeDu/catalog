@@ -1,8 +1,9 @@
 require_relative 'lib/manage_games'
 require_relative 'lib/manage_music'
+require_relative 'lib/manage_books'
 
 class App
-  attr_accessor :games, :album_list, :genre_list
+  attr_accessor :games, :album_list, :genre_list, :books
 
   def initialize
     @books = []
@@ -17,6 +18,7 @@ class App
     puts 'Loading data here..'
     load_game_data
     load_music_data
+    load_book_data
   end
 
   def save_exit

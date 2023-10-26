@@ -1,0 +1,23 @@
+[
+  {
+    "id": "Aut16983107230008726",
+    "title": "A",
+    "color": "red",
+    "items": [
+
+    ]
+  },
+  {
+    "id": "Aut16983107440005125",
+    "title": "Z",
+    "color": "red",
+    "items": [
+      {
+        "id": 7,
+        "publisher": "Z",
+        "cover_state": "Z",
+        "publish_date": "2020"
+      }
+    ]
+  }
+]
