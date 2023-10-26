@@ -1,4 +1,5 @@
 require_relative '../game'
+# require_relative '../books'
 require_relative '../author'
 require 'json'
 
@@ -11,6 +12,16 @@ def game_options
   puts '5. exit'
   print '>>> :'
 end
+
+# def book_options
+#   puts 'Please enter the number of the option to proceed'
+#   puts '1. List all books'
+#   puts '2. List all label'
+#   puts '3. Add a book'
+#   puts '4. return'
+#   puts '5. exit'
+#   print '>>> :'
+# end
 
 def manage_games
   puts
@@ -35,6 +46,29 @@ def manage_games
   end
 end
 
+# def manage_books
+#   puts
+#   book_options
+#   option = gets.chomp.to_i
+#   case option
+#   when 1
+#     list_books
+#     manage_books
+#   when 2
+#     list_all_authors
+#     manage_books
+#   when 3
+#     create_book
+#     manage_books
+#   when 4
+#     nil
+#   when 5
+#     save_exit
+#   else
+#     puts 'Invalid option, please enter the number (eg. "1")'
+#   end
+# end
+
 def add_game
   puts
   print 'Enter author first name: '
@@ -58,6 +92,28 @@ def add_game
   save_games
 end
 
+# def create_book
+#   print 'Publisher: '
+#   publisher = gets.chomp.to_s
+
+#   print 'Cover state: '
+#   cover_state = gets.chomp.to_s
+
+#   print 'Publish date: '
+#   publish_date = gets.chomp.to_s
+
+#   print 'Label:'
+#   label_name = gets.chomp.to_s
+#   label = Label.new(label_name) if label.nil?
+#   book = Book.new(publisher, cover_state, publish_date)
+#   label.add_item(book)
+#   @books << book
+#   @labels <<label
+#   puts "Book created successfully "
+
+#   save_books
+# end
+
 def list_all_games
   puts
   return puts 'No games found!' if @games.empty?
@@ -69,6 +125,16 @@ def list_all_games
   end
   puts '------------------------------------------------------------'
 end
+
+# def list_books
+#   puts 'Book list is empty' if @books.empty?
+#   puts '------------------------------------------------------------'
+#   @books.each_with_index do |book, index|
+#     puts "#{index + 1}) Authot Name: #{book.publisher},
+#     Cover: #{book.cover_state}, published Date: #{book.publish_date}"
+#   end
+#   puts '------------------------------------------------------------'
+# end
 
 def list_all_authors
   puts
@@ -97,6 +163,14 @@ def save_games
   File.write('db/games.json', JSON.pretty_generate(json))
 end
 
+# def save_books
+#   json = []
+#   @books.each do |book|
+#     json << book.to_json
+#   end
+#   File.write('db/books.json', JSON.pretty_generate(json))
+# end
+
 def load_authors
   return unless File.exist?('db/authors.json')
   return if File.empty?('db/authors.json')
@@ -117,7 +191,18 @@ def load_games
   end
 end
 
+# def load_books
+#   return unless File.exist?('db/books.json')
+#   return if File.empty?('db/books.json')
+
+#   books = JSON.parse(File.read('db/books.json'))
+#   books.each do |book|
+#     @books << Book.new(book['publisher'], book['cover_state'], book['publish_date'])
+#   end
+# end
+
 def load_game_data
   load_authors
   load_games
+  # load_books
 end

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 64,
+    "publisher": "redwan",
+    "cover_state": "abc",
+    "publish_date": "1980"
+  },
+  {
+    "id": 41,
+    "publisher": "2",
+    "cover_state": "abc",
+    "publish_date": "30"
+  },
+  {
+    "id": 61,
+    "publisher": "abc",
+    "cover_state": "xyz",
+    "publish_date": "1998"
+  },
+  {
+    "id": 67,
+    "publisher": "Redwan",
+    "cover_state": "ABC",
+    "publish_date": "1990"
+  },
+  {
+    "id": 22,
+    "publisher": "Fre",
+    "cover_state": "Fre",
+    "publish_date": "2020"
+  },
+  {
+    "id": 83,
+    "publisher": "sami",
+    "cover_state": "sami",
+    "publish_date": "2010"
+  },
+  {
+    "id": 17,
+    "publisher": "Hewan",
+    "cover_state": "hewab",
+    "publish_date": "2010"
+  },
+  {
+    "id": 32,
+    "publisher": "moh",
+    "cover_state": "moh",
+    "publish_date": "2010"
+  },
+  {
+    "id": 30,
+    "publisher": "Mubar",
+    "cover_state": "mubar",
+    "publish_date": "2010"
+  },
+  {
+    "id": 67,
+    "publisher": "Huda",
+    "cover_state": "huda",
+    "publish_date": "2020"
+  },
+  {
+    "id": 94,
+    "publisher": "Ali",
+    "cover_state": "Ali",
+    "publish_date": "2020"
+  }
+]

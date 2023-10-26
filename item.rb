@@ -12,6 +12,10 @@ class Item
     @label = nil
   end
 
+  def add_label(book_label)
+    @label = book_label
+  end
+
   def can_be_archived?
     Time.now.year - Date.parse(@publish_date).year > 10
   end
