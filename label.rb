@@ -28,6 +28,6 @@ class Label
       title: @title,
       color: @color,
       items: @items.map(&:to_json)  # Serialize items into JSON
-    }.to_json
+    }
   end
 end

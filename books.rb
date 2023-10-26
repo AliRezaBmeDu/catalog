@@ -8,7 +8,7 @@ class Book < Item
     super(publish_date, archived: false)
     @publisher = publisher
     @cover_state = cover_state
-    @label=label
+    @label = label
   end
 
   def can_be_archived?
@@ -23,5 +23,4 @@ class Book < Item
       publish_date: @publish_date
     }
   end
-
 end
