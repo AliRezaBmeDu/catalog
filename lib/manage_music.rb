@@ -74,17 +74,17 @@ def list_all_genre
     puts "\nGenre Name:#{genre.name}"
     puts 'Albums under this Genre:'
     genre.items.each_with_index do |item, index|
-      puts "#{index + 1}. #{item.name}"
+      puts "#{index + 1}. #{item.name} by #{item.artist}. Released on #{item.publish_date}"
     end
   end
   puts "\n---------------"
 end
 
 def load_music_data
-  return unless File.exist?('datastorage/album.json')
-  return if File.empty?('datastorage/album.json')
+  return unless File.exist?('db/album.json')
+  return if File.empty?('db/album.json')
 
-  albums = JSON.parse(File.read('datastorage/album.json'))
+  albums = JSON.parse(File.read('db/album.json'))
   albums.each do |album|
     load_album(album)
   end

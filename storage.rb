@@ -4,7 +4,7 @@ require_relative 'item'
 require_relative 'genre'
 
 def store_albums(album_list)
-  album_file = 'datastorage/album.json'
+  album_file = 'db/album.json'
   album_data = []
   album_list.each do |album|
     album_json = {
@@ -17,11 +17,11 @@ def store_albums(album_list)
     }
     album_data << album_json unless album_data.include?(album_json)
   end
-  File.write(album_file, JSON.generate(album_data))
+  File.write(album_file, JSON.pretty_generate(album_data))
 end
 
 def store_genre(genre_list)
-  genre_file = 'datastorage/genre.json'
+  genre_file = 'db/genre.json'
   genre_data = []
   genre_list.each do |genre|
     genre_json = {
@@ -30,5 +30,5 @@ def store_genre(genre_list)
     }
     genre_data << genre_json unless genre_data.include?(genre_json)
   end
-  File.write(genre_file, JSON.generate(genre_data))
+  File.write(genre_file, JSON.pretty_generate(genre_data))
 end
