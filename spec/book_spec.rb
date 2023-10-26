@@ -18,5 +18,15 @@ describe Book do
       book = Book.new('First publisher', 'bad', '17-10-2023')
       expect(book.cover_state).to eq('bad')
     end
+
+    it 'should be archivable when cover state is "bad"' do
+      book = Book.new('Publisher', 'bad', '17-10-2023')
+      expect(book.can_be_archived?).to be true
+    end
+
+    it 'should not be archivable when cover state is not "bad"' do
+      book = Book.new('Publisher', 'good', '17-10-2023')
+      expect(book.can_be_archived?).to be false
+    end
   end
 end
