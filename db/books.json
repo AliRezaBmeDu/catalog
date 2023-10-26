@@ -1,0 +1,80 @@
+[
+  {
+    "id": 93,
+    "publisher": "redwan",
+    "cover_state": "abc",
+    "publish_date": "1980"
+  },
+  {
+    "id": 80,
+    "publisher": "2",
+    "cover_state": "abc",
+    "publish_date": "30"
+  },
+  {
+    "id": 65,
+    "publisher": "abc",
+    "cover_state": "xyz",
+    "publish_date": "1998"
+  },
+  {
+    "id": 30,
+    "publisher": "Redwan",
+    "cover_state": "ABC",
+    "publish_date": "1990"
+  },
+  {
+    "id": 40,
+    "publisher": "Fre",
+    "cover_state": "Fre",
+    "publish_date": "2020"
+  },
+  {
+    "id": 19,
+    "publisher": "sami",
+    "cover_state": "sami",
+    "publish_date": "2010"
+  },
+  {
+    "id": 40,
+    "publisher": "Hewan",
+    "cover_state": "hewab",
+    "publish_date": "2010"
+  },
+  {
+    "id": 79,
+    "publisher": "moh",
+    "cover_state": "moh",
+    "publish_date": "2010"
+  },
+  {
+    "id": 59,
+    "publisher": "Mubar",
+    "cover_state": "mubar",
+    "publish_date": "2010"
+  },
+  {
+    "id": 28,
+    "publisher": "Huda",
+    "cover_state": "huda",
+    "publish_date": "2020"
+  },
+  {
+    "id": 97,
+    "publisher": "Ali",
+    "cover_state": "Ali",
+    "publish_date": "2020"
+  },
+  {
+    "id": 45,
+    "publisher": "A",
+    "cover_state": "a",
+    "publish_date": "2020"
+  },
+  {
+    "id": 18,
+    "publisher": "Z",
+    "cover_state": "Z",
+    "publish_date": "2020"
+  }
+]
