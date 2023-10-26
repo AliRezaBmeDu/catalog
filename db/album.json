@@ -1,0 +1,35 @@
+[
+  {
+    "id": 120,
+    "name": "SONG OF ICE AND FIRE",
+    "artist": "Ramen djwadi",
+    "publish_date": "2012-10-17",
+    "on_spotify": false,
+    "genre": [
+      556,
+      "Folk"
+    ]
+  },
+  {
+    "id": 978,
+    "name": "INCEPTION",
+    "artist": "Hans zimmer",
+    "publish_date": "2010-2-1",
+    "on_spotify": true,
+    "genre": [
+      697,
+      "Instrumental"
+    ]
+  },
+  {
+    "id": 990,
+    "name": "YANNI",
+    "artist": "Yanni",
+    "publish_date": "1995-10-25",
+    "on_spotify": true,
+    "genre": [
+      697,
+      "Instrumental"
+    ]
+  }
+]
