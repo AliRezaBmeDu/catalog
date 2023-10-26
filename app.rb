@@ -2,7 +2,6 @@ require_relative 'lib/manage_games'
 require_relative 'lib/manage_music'
 require_relative 'lib/manage_books'
 
-
 class App
   attr_accessor :games, :album_list, :genre_list, :books
 

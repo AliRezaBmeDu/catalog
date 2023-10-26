@@ -16,7 +16,7 @@ class Item
   def add_label(book_label)
     @label = book_label
   end
-  
+
   def add_genre(album_genre)
     @genre = album_genre
   end
